@@ -1,25 +1,34 @@
 package db;
 
+import entity.Service;
 import entity.User;
 import logic.UserDAO999;
+import service.ServiceService;
 import service.UserService;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 public class Demo {
     public static void main(String[] args) throws SQLException, IOException, InterruptedException {
 
 
-        UserService userService = new UserService();
-        String checkLogin = userService.checkLogin("StopSmile");
-        String checkLogin2 = userService.checkLogin("StopSmile2");
-        String checkEmail = userService.checkEmail("stopsmile1@gmail.com");
-        String checkEmail2 = userService.checkEmail("stopsmile2@gmail2.com");
-        System.out.println(checkLogin);
-        System.out.println(checkLogin2);
-        System.out.println(checkEmail);
-        System.out.println(checkEmail2);
+        ServiceService serviceService = new ServiceService();
+        List<Service>serviceList = serviceService.getServices();
+        for (Service x:serviceList) {
+            System.out.println(x);
+        }
+
+//        UserService userService = new UserService();
+//        String checkLogin = userService.checkLogin("StopSmile");
+//        String checkLogin2 = userService.checkLogin("StopSmile2");
+//        String checkEmail = userService.checkEmail("stopsmile1@gmail.com");
+//        String checkEmail2 = userService.checkEmail("stopsmile2@gmail2.com");
+//        System.out.println(checkLogin);
+//        System.out.println(checkLogin2);
+//        System.out.println(checkEmail);
+//        System.out.println(checkEmail2);
 //        User user = userService.getByLogin("123");
 //        System.out.println(user);
 //        System.out.println(userService.checkLogin("StopSmile"));
