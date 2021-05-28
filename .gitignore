@@ -29,7 +29,7 @@ Latest commit 8f39cef 11 seconds ago
  History
  1 contributor
 151 lines (117 sloc)  3.14 KB
-  
+
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/maven,java,java-web,intellij
@@ -40,6 +40,7 @@ Latest commit 8f39cef 11 seconds ago
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff
+
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
@@ -63,17 +64,17 @@ Latest commit 8f39cef 11 seconds ago
 .idea/**/libraries
 
 # Gradle and Maven with auto-import
-# When using Gradle or Maven with auto-import, you should exclude module files,
-# since they will be recreated, and may cause churn.  Uncomment if using
-# auto-import.
-# .idea/artifacts
-# .idea/compiler.xml
-# .idea/jarRepositories.xml
-# .idea/modules.xml
-# .idea/*.iml
-# .idea/modules
-# *.iml
-# *.ipr
+ When using Gradle or Maven with auto-import, you should exclude module files,
+ since they will be recreated, and may cause churn.  Uncomment if using
+ auto-import.
+ .idea/artifacts
+ .idea/compiler.xml
+ .idea/jarRepositories.xml
+ .idea/modules.xml
+ .idea/*.iml
+ .idea/modules
+ *.iml
+ *.ipr
 
 # CMake
 cmake-build-*/
@@ -86,6 +87,10 @@ cmake-build-*/
 
 # IntelliJ
 out/
+.idea/
+Beauty-Salon2.iml
+
+
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
