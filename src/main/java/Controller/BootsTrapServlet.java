@@ -16,12 +16,6 @@ public class BootsTrapServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
-        if (login.length() > 1){
-            System.out.println(login + " " + password);
-        }
-        response.sendRedirect("bootstrap-servlet");
 
     }
 }

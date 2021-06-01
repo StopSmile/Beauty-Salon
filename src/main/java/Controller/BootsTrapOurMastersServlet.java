@@ -1,6 +1,7 @@
 package Controller;
 
-import logic.UserDAO999;
+
+import service.ServiceService;
 import service.UserService;
 
 import javax.servlet.*;
@@ -26,11 +27,13 @@ public class BootsTrapOurMastersServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService userService = new UserService();
+        ServiceService serviceService = new ServiceService();
         request.setCharacterEncoding("UTF-8");
         String sortByNameUp = request.getParameter("nameUp");
         String sortByNameDown = request.getParameter("nameDown");
         String sortRateUp = request.getParameter("rateUp");
         String sortRateDown = request.getParameter("rateDown");
+        String selectMaster = request.getParameter("master");
         if (sortByNameUp != null) {
             try {
                 request.setAttribute("masters", userService.getSortedMastersByNameUp());
@@ -58,6 +61,17 @@ public class BootsTrapOurMastersServlet extends HttpServlet {
         if (sortRateDown != null){
             try {
                 request.setAttribute("masters", userService.getSortedMastersByRatingDown());
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            request.getRequestDispatcher("BootsTrapOurMasters.jsp").forward(request, response);
+        }
+        if (selectMaster != null){
+            try {
+                request.setAttribute("masters", userService.getMaster(selectMaster));
+                request.setAttribute("masters2", serviceService.getMasterInfo(selectMaster));
+                request.setAttribute("name", "Назва послуги");
+                request.setAttribute("name2", "Ціна");
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }

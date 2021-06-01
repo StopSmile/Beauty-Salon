@@ -2,7 +2,6 @@ package db;
 
 import entity.Service;
 import entity.User;
-import logic.UserDAO999;
 import service.ServiceService;
 import service.UserService;
 
@@ -15,10 +14,15 @@ public class Demo {
 
 
         ServiceService serviceService = new ServiceService();
-        List<Service>serviceList = serviceService.getServices();
+        List<Service>serviceList = serviceService.getMasterInfo("Jane");
         for (Service x:serviceList) {
             System.out.println(x);
         }
+//        UserService userService = new UserService();
+//        List<User> userList = userService.getMaster("Anna");
+//        for (User x : userList) {
+//            System.out.println(x);
+//        }
 
 //        UserService userService = new UserService();
 //        String checkLogin = userService.checkLogin("StopSmile");

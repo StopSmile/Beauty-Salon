@@ -14,6 +14,7 @@ public class UserService extends DBConnect implements dao.UserDAO {
     private static final String INSERT = "insert into users (id,firstname,lastname,login,password,email,roleid,servicegroupid,rating) values (DEFAULT,?,?,?,?,?,?,?,?);";
     private static final String SELECT_USER = "select * from users where login=?";
     private static final String SELECT_EMAIL = "select * from users where email=?";
+    private static final String SELECT_MASTER_BY_NAME = "select * from users where firstname=?";
     private static final String SQLSelectMasters = "select * from users where roleid = 4";
     private static final String SELECT_MASTERS_BY_NAME_UP = "select * from users where roleid = 4 order by firstname";
     private static final String SELECT_MASTERS_BY_NAME_DOWN = "select * from users where roleid=4 order by firstname DESC";
@@ -61,6 +62,9 @@ public class UserService extends DBConnect implements dao.UserDAO {
                 user.setFirstName(rs.getString("firstname"));
                 user.setLastName(rs.getString("lastname"));
                 user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+                user.setRoleId(rs.getInt("roleid"));
+                user.setId(rs.getInt("id"));
             }
 
         } catch (SQLException throwables) {
@@ -256,6 +260,60 @@ public class UserService extends DBConnect implements dao.UserDAO {
         } finally {
             assert stm != null;
             stm.close();
+            assert rs != null;
+            rs.close();
+        }
+        return list;
+    }
+    public ArrayList<User> getMaster(String name) throws SQLException, IOException {
+        ArrayList<User> list = new ArrayList<>();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = connection.prepareStatement(SELECT_MASTER_BY_NAME);
+            ps.setString(1, name);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                User user = new User();
+                user.setFirstName(rs.getString("firstname"));
+                user.setLastName(rs.getString("lastname"));
+                user.setEmail(rs.getString("email"));
+                user.setRating(rs.getInt("rating"));
+                list.add(user);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            assert ps != null;
+            ps.close();
+            assert rs != null;
+            rs.close();
+        }
+        return list;
+    }
+    public ArrayList<User> getMasterInfo(String name) throws SQLException, IOException {
+        ArrayList<User> list = new ArrayList<>();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = connection.prepareStatement(SELECT_MASTER_BY_NAME);
+            ps.setString(1, name);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                User user = new User();
+                user.setFirstName(rs.getString("firstname"));
+                user.setLastName(rs.getString("lastname"));
+                user.setEmail(rs.getString("email"));
+                user.setRating(rs.getInt("rating"));
+                list.add(user);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            assert ps != null;
+            ps.close();
             assert rs != null;
             rs.close();
         }

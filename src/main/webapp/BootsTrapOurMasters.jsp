@@ -94,6 +94,42 @@
                         </tbody>
                     </c:forEach>
                 </table>
+                <table class="table table-dark table-striped">
+                    <thead>
+                    <tr>
+                        <th>${name}</th>
+                        <th>${name2}</th>
+
+                        <%--                        <th scope="col">Пошта</th>--%>
+                        <%--                        <th scope="col">Рейтинг</th>--%>
+                    </tr>
+                    </thead>
+                    <c:forEach items="${masters2}" var="master">
+                        <tbody>
+                        <tr>
+                            <td>${master.name}</td>
+                            <td>${master.price}</td>
+                                <%--                            <td>${master.email}</td>--%>
+                                <%--                            <td>${master.rating}</td>--%>
+                        </tr>
+                        </tbody>
+                    </c:forEach>
+                </table>
+                <form method="post">
+                    <div class="row align-items-center gy-5">
+                        <div class="col-4">
+                            <label for="filter" class="form-label"></label>
+                            <input type="text" class="form-control" id="filter" name="master" placeholder="Anna">
+                            <button class="btn btn-secondary btn" type="submit">Відфільтрувати</button>
+                        </div>
+                        <div class="col-4">
+                            <%--                            <button class="btn btn-secondary btn" type="submit">Відфільтрувати</button>--%>
+                        </div>
+                        <div class="col-4">
+
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="col-3">
 
@@ -105,6 +141,11 @@
                      alt="girl">
             </div>
         </div>
+    </div>
+</section>
+<section>
+    <div class="container-xxl">
+
     </div>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"

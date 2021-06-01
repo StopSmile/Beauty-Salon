@@ -118,3 +118,35 @@
 <%--       aria-label="Search">--%>
 <%--<input class="form-control-sm" type="text" name="password" placeholder="password"--%>
 <%--       aria-label="Search">--%>
+
+
+
+
+
+
+
+<%--<section>--%>
+<%--  <div class="container-xxl">--%>
+<%--    <div class="row">--%>
+<%--      <div class="col 4">--%>
+<%--      </div>--%>
+<%--      <div class="col 4">--%>
+<%--        <% User user = (User) session.getAttribute("user"); %>--%>
+<%--        <p> Login : <%= user.getLogin() %>--%>
+<%--        </p>--%>
+<%--        <p> First name :  <%= user.getFirstName() %>--%>
+<%--        </p>--%>
+<%--        <p> Last name :  <%= user.getLastName() %>--%>
+<%--        </p>--%>
+<%--      </div>--%>
+<%--      <div class="col 4">--%>
+<%--      </div>--%>
+<%--    </div>--%>
+<%--  </div>--%>
+<%--</section>--%>
+
+<%--<form method="post">--%>
+<%--    <form class="d-flex">--%>
+<%--        <button class="btn btn-outline-success" name="logout" type="submit">Вийти</button>--%>
+<%--    </form>--%>
+<%--</form>--%>
