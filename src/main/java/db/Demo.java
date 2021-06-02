@@ -1,8 +1,10 @@
 package db;
 
 import entity.Service;
+import entity.TimeSlot;
 import entity.User;
 import service.ServiceService;
+import service.TimeSlotService;
 import service.UserService;
 
 import java.io.IOException;
@@ -13,11 +15,20 @@ public class Demo {
     public static void main(String[] args) throws SQLException, IOException, InterruptedException {
 
 
-        ServiceService serviceService = new ServiceService();
-        List<Service>serviceList = serviceService.getMasterInfo("Jane");
-        for (Service x:serviceList) {
+//        ServiceService serviceService = new ServiceService();
+//        List<Service>serviceList = serviceService.getMasterInfo("Jane");
+//        for (Service x:serviceList) {
+//            System.out.println(x);
+//        }
+        TimeSlotService timeSlotService = new TimeSlotService();
+
+        List<TimeSlot> timeSlots = timeSlotService.getTimeSlots();
+        for (TimeSlot x:timeSlots) {
             System.out.println(x);
         }
+
+
+
 //        UserService userService = new UserService();
 //        List<User> userList = userService.getMaster("Anna");
 //        for (User x : userList) {

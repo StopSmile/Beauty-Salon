@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="entity.User" %><%--
   Created by IntelliJ IDEA.
   User: Admin
@@ -68,14 +69,38 @@
 <section>
     <div class="container-xxl">
         <div class="row">
-            <div class="col 3">
-                <% User user = (User) session.getAttribute("user"); %>
-                <p>Ім'я користувача : <%= user.getLogin() %></p>
-                <p>Ім'я :  <%= user.getFirstName() %></p>
-                <p>Прізвище :  <%= user.getLastName() %></p>
-                <p>Пошта : <%= user.getEmail() %></p>
+            <div class="col-6">
+                <table class="table table-dark table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Ім'я</th>
+                        <th scope="col">Прізвище</th>
+                        <th scope="col">Пошта</th>
+                        <th scope="col">Рейтинг</th>
+                        <th scope="col">Виберіть майстра</th>
+                    </tr>
+                    </thead>
+                    <c:forEach items="${masters}" var="master">
+
+                        <tbody>
+                        <tr>
+                            <td>${master.firstName}</td>
+                            <td>${master.lastName}</td>
+                            <td>${master.email}</td>
+                            <td>${master.rating}</td>
+                            <td>
+                                <form method="post">
+                                    <button class="btn btn-success" name="masterid" type="submit" value="${master.id}">
+                                        Вибрати
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </c:forEach>
+                </table>
             </div>
-            <div class="col 5">
+            <div class="col-2">
 
             </div>
             <div class="col-4">
@@ -87,11 +112,6 @@
     </div>
 </section>
 
-<%--<form method="post">--%>
-<%--    <form class="d-flex">--%>
-<%--        <button class="btn btn-outline-success" name="logout" type="submit">Вийти</button>--%>
-<%--    </form>--%>
-<%--</form>--%>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
@@ -100,34 +120,3 @@
 </html>
 
 
-<%--<input class="form-control-sm" type="text" name="login" placeholder="login"--%>
-<%--       aria-label="Search">--%>
-<%--<input class="form-control-sm" type="text" name="password" placeholder="password"--%>
-<%--       aria-label="Search">--%>
-
-
-<%--<section>--%>
-<%--  <div class="container-xxl">--%>
-<%--    <div class="row">--%>
-<%--      <div class="col 4">--%>
-<%--      </div>--%>
-<%--      <div class="col 4">--%>
-<%--        <% User user = (User) session.getAttribute("user"); %>--%>
-<%--        <p> Login : <%= user.getLogin() %>--%>
-<%--        </p>--%>
-<%--        <p> First name :  <%= user.getFirstName() %>--%>
-<%--        </p>--%>
-<%--        <p> Last name :  <%= user.getLastName() %>--%>
-<%--        </p>--%>
-<%--      </div>--%>
-<%--      <div class="col 4">--%>
-<%--      </div>--%>
-<%--    </div>--%>
-<%--  </div>--%>
-<%--</section>--%>
-
-<%--<form method="post">--%>
-<%--    <form class="d-flex">--%>
-<%--        <button class="btn btn-outline-success" name="logout" type="submit">Вийти</button>--%>
-<%--    </form>--%>
-<%--</form>--%>

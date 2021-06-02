@@ -14,7 +14,7 @@ public class BootsTrapCabinetServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        //request.getRequestDispatcher("Bootstrapcabinet.jsp").forward(request, response);
+
 
         HttpSession session = request.getSession();
         String id = (String) session.getAttribute("id");
@@ -22,9 +22,6 @@ public class BootsTrapCabinetServlet extends HttpServlet {
         if (id == null) {
             request.getRequestDispatcher("Bootstrapcabinet.jsp").forward(request, response);
         } else {
-//            session.setAttribute("id",id);
-//            getServletContext().getRequestDispatcher("/ClientCabinet-Servlet").forward(request,response);
-            //request.getRequestDispatcher("/ClientCabinet-Servlet");
             response.sendRedirect("ClientCabinet-Servlet");
         }
 
@@ -63,22 +60,15 @@ public class BootsTrapCabinetServlet extends HttpServlet {
                 if (user.getRoleId() == 2){
                     session.setAttribute("user", user);
                     session.setAttribute("id",String.valueOf(user.getId()));
-                    //getServletContext().getRequestDispatcher("/clientcabinet.jsp").forward(request,response);
-                    //request.getRequestDispatcher("/ClientCabinet-Servlet");
                     response.sendRedirect("ClientCabinet-Servlet");
-
                 }
-//                String message = "Ви успішно увійшли";
-//                request.setAttribute("message", message);
-//                getServletContext().getRequestDispatcher("/clientpage.jsp").forward(request, response);
-                //request.getRequestDispatcher("client/clientpage.jsp").forward(request, response);
             } else {
                 String message = "Ви ввели неправильний пароль";
                 request.setAttribute("message", message);
                 request.getRequestDispatcher("Bootstrapcabinet.jsp").forward(request, response);
             }
         }
-        //response.sendRedirect("bootstrapcabinet-servlet");
+
 
     }
 }

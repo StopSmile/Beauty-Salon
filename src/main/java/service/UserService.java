@@ -16,6 +16,9 @@ public class UserService extends DBConnect implements dao.UserDAO {
     private static final String SELECT_EMAIL = "select * from users where email=?";
     private static final String SELECT_MASTER_BY_NAME = "select * from users where firstname=?";
     private static final String SQLSelectMasters = "select * from users where roleid = 4";
+    private static final String SELECT_MASTRES_BY_FIRST_GROUP = "select * from users where servicegroupid = 1";
+    private static final String SELECT_MASTRES_BY_SECOND_GROUP = "select * from users where servicegroupid = 2";
+    private static final String SELECT_MASTRES_BY_THIRD_GROUP = "select * from users where servicegroupid = 3";
     private static final String SELECT_MASTERS_BY_NAME_UP = "select * from users where roleid = 4 order by firstname";
     private static final String SELECT_MASTERS_BY_NAME_DOWN = "select * from users where roleid=4 order by firstname DESC";
     private static final String SELECT_MASTERS_BY_RATE_DOWN = "select * from users where roleid = 4 order by rating";
@@ -130,6 +133,7 @@ public class UserService extends DBConnect implements dao.UserDAO {
             rs = stm.executeQuery(SQLSelectMasters);
             while (rs.next()) {
                 User user = new User();
+                user.setId(rs.getInt(1));
                 user.setFirstName(rs.getString(2));
                 user.setLastName(rs.getString(3));
                 user.setLogin(rs.getString(4));
@@ -137,6 +141,96 @@ public class UserService extends DBConnect implements dao.UserDAO {
                 user.setEmail(rs.getString(6));
                 user.setRoleId(rs.getInt(7));
                 user.setRating(rs.getInt(8));
+                list.add(user);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            assert stm != null;
+            stm.close();
+            assert rs != null;
+            rs.close();
+        }
+        return list;
+    }
+    public ArrayList<User> getMastersFirstGroup() throws SQLException, IOException {
+        ArrayList<User> list = new ArrayList<>();
+        Statement stm = null;
+        ResultSet rs = null;
+        try {
+            stm = connection.createStatement();
+            rs = stm.executeQuery(SELECT_MASTRES_BY_FIRST_GROUP);
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt(1));
+                user.setFirstName(rs.getString(2));
+                user.setLastName(rs.getString(3));
+                user.setLogin(rs.getString(4));
+                user.setPassword(rs.getString(5));
+                user.setEmail(rs.getString(6));
+                user.setRoleId(rs.getInt(7));
+                user.setRating(rs.getInt(8));
+                user.setServiceGroupId(rs.getInt(9));
+                list.add(user);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            assert stm != null;
+            stm.close();
+            assert rs != null;
+            rs.close();
+        }
+        return list;
+    }
+    public ArrayList<User> getMastersSecondGroup() throws SQLException, IOException {
+        ArrayList<User> list = new ArrayList<>();
+        Statement stm = null;
+        ResultSet rs = null;
+        try {
+            stm = connection.createStatement();
+            rs = stm.executeQuery(SELECT_MASTRES_BY_SECOND_GROUP);
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt(1));
+                user.setFirstName(rs.getString(2));
+                user.setLastName(rs.getString(3));
+                user.setLogin(rs.getString(4));
+                user.setPassword(rs.getString(5));
+                user.setEmail(rs.getString(6));
+                user.setRoleId(rs.getInt(7));
+                user.setRating(rs.getInt(8));
+                user.setServiceGroupId(rs.getInt(9));
+                list.add(user);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            assert stm != null;
+            stm.close();
+            assert rs != null;
+            rs.close();
+        }
+        return list;
+    }
+    public ArrayList<User> getMastersThirdGroup() throws SQLException, IOException {
+        ArrayList<User> list = new ArrayList<>();
+        Statement stm = null;
+        ResultSet rs = null;
+        try {
+            stm = connection.createStatement();
+            rs = stm.executeQuery(SELECT_MASTRES_BY_THIRD_GROUP);
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt(1));
+                user.setFirstName(rs.getString(2));
+                user.setLastName(rs.getString(3));
+                user.setLogin(rs.getString(4));
+                user.setPassword(rs.getString(5));
+                user.setEmail(rs.getString(6));
+                user.setRoleId(rs.getInt(7));
+                user.setRating(rs.getInt(8));
+                user.setServiceGroupId(rs.getInt(9));
                 list.add(user);
             }
         } catch (SQLException throwables) {

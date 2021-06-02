@@ -28,14 +28,11 @@ public class ClientCabinetServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String logout = request.getParameter("logout");
         System.out.println(logout);
-        if (logout != null){
+        if (logout != null) {
             System.out.println("logout != null");
-            session.setAttribute("id",null);
-            //getServletContext().getRequestDispatcher("/Bootstrap.jsp").forward(request,response);
+            session.invalidate();
+            //session.setAttribute("id", null);
             response.sendRedirect("bootstrapcabinet-servlet");
-//            request.getRequestDispatcher("Bootstrap.jsp").forward(request, response);
-        }else {
-            System.out.println("logout == null");
         }
 
     }
