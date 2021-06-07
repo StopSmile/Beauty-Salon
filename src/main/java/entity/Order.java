@@ -7,12 +7,12 @@ public class Order {
     private int clientId;
     private int masterId;
     private int timeSlotId;
-    private Date date;
+    private java.sql.Date date;
     private int serviceId;
     private int orderStatusId;
 
 
-    public Order(int id, int clientId, int masterId, int timeSlotId, Date date, int serviceId, int orderStatusId) {
+    public Order(int id, int clientId, int masterId, int timeSlotId, java.sql.Date date, int serviceId, int orderStatusId) {
         this.id = id;
         this.clientId = clientId;
         this.masterId = masterId;
@@ -21,7 +21,8 @@ public class Order {
         this.serviceId = serviceId;
         this.orderStatusId = orderStatusId;
     }
-    public Order(){
+
+    public Order() {
 
     }
 
@@ -57,11 +58,11 @@ public class Order {
         this.timeSlotId = timeSlotId;
     }
 
-    public Date getDate() {
+    public java.sql.Date getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(java.sql.Date date) {
         this.date = date;
     }
 

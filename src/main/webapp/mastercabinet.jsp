@@ -41,7 +41,7 @@
                         <a class="nav-link" href="bootstrapourmasters-servlet">Список майстрів</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ClientOrder-Servlet">Записатись на послугу</a>
+                        <a class="nav-link" href="MasterOrders-Servlet">Переглянути мої замовлення</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Про нас</a>
@@ -80,7 +80,9 @@
                 </p>
             </div>
             <div class="col 5">
+
                 <h1>${message}</h1>
+
             </div>
             <div class="col-4">
                 <img class="w-100"
@@ -97,3 +99,5 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+
+

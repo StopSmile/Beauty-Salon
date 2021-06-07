@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="entity.User" %><%--
   Created by IntelliJ IDEA.
   User: Admin
@@ -41,7 +42,7 @@
                         <a class="nav-link" href="bootstrapourmasters-servlet">Список майстрів</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ClientOrder-Servlet">Записатись на послугу</a>
+                        <a class="nav-link" href="MasterOrders-Servlet">Переглянути мої замовлення</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Про нас</a>
@@ -68,19 +69,45 @@
 <section>
     <div class="container-xxl">
         <div class="row">
-            <div class="col 3">
-                <% User user = (User) session.getAttribute("user"); %>
-                <p>Ім'я користувача : <%= user.getLogin() %>
-                </p>
-                <p>Ім'я :  <%= user.getFirstName() %>
-                </p>
-                <p>Прізвище :  <%= user.getLastName() %>
-                </p>
-                <p>Пошта : <%= user.getEmail() %>
-                </p>
+            <div class="col 4">
+                <table class="table table-dark table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Ім'я клієнта</th>
+                        <th scope="col">Прізвище клієнта</th>
+                        <th scope="col">Послуга</th>
+                        <th scope="col">Датування</th>
+                        <th scope="col">З</th>
+                        <th scope="col">По</th>
+                        <th scope="col">Статус</th>
+                        <th scope="col">Дія</th>
+                    </tr>
+                    </thead>
+                    <c:forEach items="${orders}" var="order">
+                        <tbody>
+                        <tr>
+                            <td>${order.firstName}</td>
+                            <td>${order.lastName}</td>
+                            <td>${order.serviceName}</td>
+                            <td>${order.date}</td>
+                            <td>${order.timeStart}</td>
+                            <td>${order.timeEnd}</td>
+                            <td>${order.orderName}</td>
+                            <td>
+                                <form method="post">
+                                    <button class="btn btn-success btn-sm" name="orderid" type="submit"
+                                            value="${order.id}">
+                                        Виконано
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </c:forEach>
+                </table>
             </div>
-            <div class="col 5">
-                <h1>${message}</h1>
+            <div class="col 4">
+
             </div>
             <div class="col-4">
                 <img class="w-100"
@@ -97,3 +124,5 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+
+

@@ -68,45 +68,43 @@
 </header>
 <section>
     <div class="container-xxl">
-        <div class="row">
-            <div class="col-6">
-                <table class="table table-dark table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">З</th>
-                        <th scope="col">По</th>
-                        <th scope="col">Оберіть час</th>
-
-                    </tr>
-                    </thead>
-                    <c:forEach items="${timeslots}" var="timeslot">
-
-                        <tbody>
-                        <tr>
-                            <td>${timeslot.timeStart}</td>
-                            <td>${timeslot.timeEnd}</td>
-                            <td>
-                                <form method="post">
-                                    <button class="btn btn-success" name="masterid" type="submit"
+        <form method="post">
+            <div class="row">
+                <div class="col-5">
+                    <table class="table table-dark table-striped">
+                        <c:forEach items="${timeslots}" var="timeslot">
+                            <tbody>
+                            <tr>
+                                <td>${timeslot.timeStart}</td>
+                                <td>${timeslot.timeEnd}</td>
+                                <td>
+                                    <button class="btn btn-success btn-sm" name="timeslotid" type="submit"
                                             value="${timeslot.id}">
                                         Вибрати
                                     </button>
-                                </form>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </c:forEach>
-                </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </c:forEach>
+                    </table>
+                </div>
+                <div class="col-3">
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="chosedate" class="form-label">Оберіть дату :</label>
+                            <input type="date" class="form-control" id="chosedate" name="date">
+                            <button type="submit" class="btn btn-success btn-sm">Вибрати дату</button>
+                            <p>${message}</p>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4">
+                    <img class="w-100"
+                         src="https://images.pexels.com/photos/1122868/pexels-photo-1122868.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="girl">
+                </div>
             </div>
-            <div class="col-2">
-
-            </div>
-            <div class="col-4">
-                <img class="w-100"
-                     src="https://images.pexels.com/photos/1122868/pexels-photo-1122868.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                     alt="girl">
-            </div>
-        </div>
+        </form>
     </div>
 </section>
 
@@ -114,6 +112,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
+
 </body>
 </html>
 

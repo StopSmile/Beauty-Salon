@@ -42,7 +42,7 @@ public class BootsTrapOurMastersServlet extends HttpServlet {
             }
             request.getRequestDispatcher("BootsTrapOurMasters.jsp").forward(request, response);
         }
-        if (sortByNameDown != null){
+        if (sortByNameDown != null) {
             try {
                 request.setAttribute("masters", userService.getSortedMastersByNameDown());
             } catch (SQLException throwables) {
@@ -58,7 +58,7 @@ public class BootsTrapOurMastersServlet extends HttpServlet {
             }
             request.getRequestDispatcher("BootsTrapOurMasters.jsp").forward(request, response);
         }
-        if (sortRateDown != null){
+        if (sortRateDown != null) {
             try {
                 request.setAttribute("masters", userService.getSortedMastersByRatingDown());
             } catch (SQLException throwables) {
@@ -66,7 +66,7 @@ public class BootsTrapOurMastersServlet extends HttpServlet {
             }
             request.getRequestDispatcher("BootsTrapOurMasters.jsp").forward(request, response);
         }
-        if (selectMaster != null){
+        if (selectMaster != null) {
             try {
                 request.setAttribute("masters", userService.getMaster(selectMaster));
                 request.setAttribute("masters2", serviceService.getMasterInfo(selectMaster));

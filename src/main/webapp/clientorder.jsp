@@ -69,7 +69,7 @@
 <section>
     <div class="container-xxl">
         <form method="post">
-            <div class="row">   <%--  align-items-center--%>
+            <div class="row">
                 <div class="col">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
@@ -81,16 +81,19 @@
                                 <button class="dropdown-item" type="submit" name="service1">Жіноча стрижка</button>
                             </li>
                             <li>
-                                <button class="dropdown-item" type="submit" name="service2">Стрижка гарячими ножицями</button>
+                                <button class="dropdown-item" type="submit" name="service2">Стрижка гарячими ножицями
+                                </button>
                             </li>
                             <li>
                                 <button class="dropdown-item" type="submit" name="service3">Полірування волосся</button>
                             </li>
                             <li>
-                                <button class="dropdown-item" type="submit" name="service5">Чоловіча модельна стрижка</button>
+                                <button class="dropdown-item" type="submit" name="service5">Чоловіча модельна стрижка
+                                </button>
                             </li>
                             <li>
-                                <button class="dropdown-item" type="submit" name="service6">Чоловіча стрижка машинкою 1 насадка
+                                <button class="dropdown-item" type="submit" name="service6">Чоловіча стрижка машинкою 1
+                                    насадка
                                 </button>
                             </li>
                             <li>
@@ -116,10 +119,13 @@
                                 <button class="dropdown-item" type="submit" name="service10">Педікюр</button>
                             </li>
                             <li>
-                                <button class="dropdown-item" type="submit" name="service11">Однотонне покриття нігтів</button>
+                                <button class="dropdown-item" type="submit" name="service11">Однотонне покриття нігтів
+                                </button>
                             </li>
                             <li>
-                                <button class="dropdown-item" type="submit" name="service12">Нарощення нігтів (з покриттям)</button>
+                                <button class="dropdown-item" type="submit" name="service12">Нарощення нігтів (з
+                                    покриттям)
+                                </button>
                             </li>
                         </ul>
                     </div>
@@ -133,7 +139,8 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenu4">
                             <li>
-                                <button class="dropdown-item" type="submit" name="service13">Проколювання 1 вуха</button>
+                                <button class="dropdown-item" type="submit" name="service13">Проколювання 1 вуха
+                                </button>
                             </li>
                             <li>
                                 <button class="dropdown-item" type="submit" name="service14">Проколювання 2 вух</button>
@@ -150,33 +157,6 @@
         </form>
     </div>
 </section>
-<section>
-<%--        <div class="container-xxl">--%>
-<%--            <div class="col-4">--%>
-<%--                <table class="table table-dark table-striped">--%>
-<%--                    <thead>--%>
-<%--                    <tr>--%>
-<%--                        <th scope="col">Ім'я</th>--%>
-<%--                        <th scope="col">Прізвище</th>--%>
-<%--                        <th scope="col">Пошта</th>--%>
-<%--                        <th scope="col">Рейтинг</th>--%>
-<%--                    </tr>--%>
-<%--                    </thead>--%>
-<%--                    <c:forEach items="${masters}" var="master">--%>
-<%--                        <tbody>--%>
-<%--                        <tr>--%>
-<%--                            <td>${master.firstName}</td>--%>
-<%--                            <td>${master.lastName}</td>--%>
-<%--                            <td>${master.email}</td>--%>
-<%--                            <td>${master.rating}</td>--%>
-<%--                        </tr>--%>
-<%--                        </tbody>--%>
-<%--                    </c:forEach>--%>
-<%--                </table>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-</section>
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"

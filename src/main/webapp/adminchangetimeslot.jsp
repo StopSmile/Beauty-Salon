@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="entity.User" %><%--
   Created by IntelliJ IDEA.
   User: Admin
@@ -40,8 +41,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="bootstrapourmasters-servlet">Список майстрів</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="ClientOrder-Servlet">Записатись на послугу</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Замовлення
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="AdminOrders-Servlet">Усі замовлення</a></li>
+                            <li><a class="dropdown-item" href="AdminActiveOrders-Servlet">Активні замовлення</a></li>
+                            <li><a class="dropdown-item" href="AdminDoneOrders-Servlet">Виконані замовлення</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Про нас</a>
@@ -67,27 +76,43 @@
 </header>
 <section>
     <div class="container-xxl">
-        <div class="row">
-            <div class="col 3">
-                <% User user = (User) session.getAttribute("user"); %>
-                <p>Ім'я користувача : <%= user.getLogin() %>
-                </p>
-                <p>Ім'я :  <%= user.getFirstName() %>
-                </p>
-                <p>Прізвище :  <%= user.getLastName() %>
-                </p>
-                <p>Пошта : <%= user.getEmail() %>
-                </p>
+        <form method="post" class="needs-validation" novalidate>
+            <div class="row">
+                <div class="col-5">
+                    <table class="table table-dark table-striped">
+                        <c:forEach items="${timeslots}" var="timeslot">
+                            <tbody>
+                            <tr>
+                                <td>${timeslot.timeStart}</td>
+                                <td>${timeslot.timeEnd}</td>
+                                <td>
+                                    <button class="btn btn-success btn-sm" name="timeslotid" type="submit"
+                                            value="${timeslot.id}">
+                                        Вибрати
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </c:forEach>
+                    </table>
+                </div>
+                <div class="col-3">
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="chosedate" class="form-label">Оберіть дату :</label>
+                            <input type="date" class="form-control" id="chosedate" name="date">
+                            <button type="submit" class="btn btn-success btn-sm">Вибрати дату</button>
+                            <p>${message}</p>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4">
+                    <img class="w-100"
+                         src="https://images.pexels.com/photos/1122868/pexels-photo-1122868.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="girl">
+                </div>
             </div>
-            <div class="col 5">
-                <h1>${message}</h1>
-            </div>
-            <div class="col-4">
-                <img class="w-100"
-                     src="https://images.pexels.com/photos/1122868/pexels-photo-1122868.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                     alt="girl">
-            </div>
-        </div>
+        </form>
     </div>
 </section>
 
@@ -97,3 +122,5 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+
+

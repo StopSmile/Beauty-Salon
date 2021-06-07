@@ -65,22 +65,9 @@
                 <table class="table table-dark table-striped">
                     <thead>
                     <tr>
-                        <th scope="col">
-<%--                            <form method="post">--%>
-<%--                                <button class="btn btn-light btn-sm" name="nameUp" type="submit">&#8593;</button>--%>
-<%--                                <button class="btn btn-light btn-sm" name="nameDown" type="submit">&#8595;</button>--%>
-<%--                            </form>--%>
-                            Назва послуги
-                        </th>
+                        <th scope="col">Назва послуги</th>
                         <th scope="col">Ціна</th>
-<%--                        <th scope="col">Тип послуги</th>--%>
-<%--                        <th scope="col">--%>
-<%--                            <form method="post">--%>
-<%--                                <button class="btn btn-light btn-sm" name="rateUp" type="submit">&#8593;</button>--%>
-<%--                                <button class="btn btn-light btn-sm" name="rateDown" type="submit">&#8595;</button>--%>
-<%--                            </form>--%>
-<%--                            Рейтинг--%>
-<%--                        </th>--%>
+
                     </tr>
                     </thead>
                     <c:forEach items="${services}" var="service">
@@ -88,7 +75,6 @@
                         <tr>
                             <td>${service.name}</td>
                             <td>${service.price}</td>
-<%--                            <td>${service.serviceGroupId}</td>--%>
                         </tr>
                         </tbody>
                     </c:forEach>

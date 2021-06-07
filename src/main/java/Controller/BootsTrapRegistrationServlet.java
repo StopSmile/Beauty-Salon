@@ -4,7 +4,6 @@ import entity.User;
 
 import service.UserService;
 
-import javax.security.auth.login.LoginException;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -75,7 +74,6 @@ public class BootsTrapRegistrationServlet extends HttpServlet {
             request.setAttribute("message", message);
             request.getRequestDispatcher("BootsTrapRegistration.jsp").forward(request, response);
         }
-
 
 
     }

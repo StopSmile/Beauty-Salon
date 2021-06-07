@@ -62,7 +62,6 @@
     <div class="container-xxl">
         <div class="row align-items-center gy-5">
             <div class="col-3">
-
                 <form method="post">
                     <div class="row gy-2">
                         <div class="col-12">
@@ -82,20 +81,9 @@
 
                     </div>
                 </form>
-
-
             </div>
             <div class="col-5">
-                <%--                <blockquote class="blockquote">--%>
-                <%--                    <p>Коли ти сповнена печалі, розчарована в коханні, – зроби макіяж, найкращу зачіску – і атакуй.</p>--%>
-                <%--                </blockquote>--%>
-                <%--                <h1>«Коли ти сповнена печалі, розчарована в коханні, – зроби макіяж, найкращу зачіску – і атакуй»</h1>--%>
-                <%--                <h2>«Догляд за собою повинен починатися в серці і душі. Без цього будь-яка косметика – безсила»</h2>--%>
-                <%--                <h3>«Обличчя – це дзеркало, яке відображає рух внутрішнього життя. Приділяйте йому особливу увагу»</h3>--%>
-                <%--                <h4>«Це сторінка вашого особистого кабінету»</h4>--%>
                 <p>${message}</p>
-
-
             </div>
             <div class="col-4">
                 <img class="w-100"
@@ -114,25 +102,3 @@
 
 </body>
 </html>
-
-
-<%--<div class="row gy-5">--%>
-<%--    <div class="col-6">--%>
-<%--        <button type="button" class="btn btn-success">Sign in</button>--%>
-<%--    </div>--%>
-<%--    <div class="col-6">--%>
-<%--        <button type="button" class="btn btn-success">Registration</button>--%>
-<%--    </div>--%>
-<%--</div>--%>
-
-<%--<div class="row gy-5">--%>
-<%--    <div class="col-5">--%>
-<%--        <button type="button" class="btn btn-primary">Sign in</button>--%>
-<%--    </div>--%>
-<%--    <div class="col-2">--%>
-
-<%--    </div>--%>
-<%--    <div class="col-5">--%>
-<%--        <button type="button" class="btn btn-success">Registration</button>--%>
-<%--    </div>--%>
-<%--</div>--%>

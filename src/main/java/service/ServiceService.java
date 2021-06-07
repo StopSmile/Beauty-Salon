@@ -38,6 +38,7 @@ public class ServiceService extends DBConnect {
         }
         return list;
     }
+
     public ArrayList<Service> getMasterInfo(String name) throws SQLException, IOException {
         ArrayList<Service> list = new ArrayList<>();
         PreparedStatement ps = null;

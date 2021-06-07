@@ -13,12 +13,14 @@ public class ClientOrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+
         HttpSession session = request.getSession();
-        String id = (String) session.getAttribute("id");
-        if (id == null) {
-            response.sendRedirect("bootstrapcabinet-servlet");
-        } else {
+        int roleid = (int) session.getAttribute("roleid");
+
+        if (roleid == 2) {
             request.getRequestDispatcher("clientorder.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("bootstrapcabinet-servlet");
         }
 
     }
@@ -43,74 +45,71 @@ public class ClientOrderServlet extends HttpServlet {
         String service14 = request.getParameter("service14");
 
 
-
-
         if (service1 != null) {
-            session.setAttribute("serviceid",1);
-            session.setAttribute("servicegroupid",1);
+            session.setAttribute("serviceid", 1);
+            session.setAttribute("servicegroupid", 1);
             response.sendRedirect("ClientChoseMaster-Servlet");
         }
         if (service2 != null) {
-            session.setAttribute("serviceid",2);
-            session.setAttribute("servicegroupid",1);
+            session.setAttribute("serviceid", 2);
+            session.setAttribute("servicegroupid", 1);
             response.sendRedirect("ClientChoseMaster-Servlet");
         }
         if (service3 != null) {
-            session.setAttribute("serviceid",3);
-            session.setAttribute("servicegroupid",1);
+            session.setAttribute("serviceid", 3);
+            session.setAttribute("servicegroupid", 1);
             response.sendRedirect("ClientChoseMaster-Servlet");
         }
         if (service5 != null) {
-            session.setAttribute("serviceid",5);
-            session.setAttribute("servicegroupid",1);
+            session.setAttribute("serviceid", 5);
+            session.setAttribute("servicegroupid", 1);
             response.sendRedirect("ClientChoseMaster-Servlet");
         }
         if (service6 != null) {
-            session.setAttribute("serviceid",6);
-            session.setAttribute("servicegroupid",1);
+            session.setAttribute("serviceid", 6);
+            session.setAttribute("servicegroupid", 1);
             response.sendRedirect("ClientChoseMaster-Servlet");
         }
         if (service7 != null) {
-            session.setAttribute("serviceid",7);
-            session.setAttribute("servicegroupid",1);
+            session.setAttribute("serviceid", 7);
+            session.setAttribute("servicegroupid", 1);
             response.sendRedirect("ClientChoseMaster-Servlet");
         }
         if (service8 != null) {
-            session.setAttribute("serviceid",8);
-            session.setAttribute("servicegroupid",2);
+            session.setAttribute("serviceid", 8);
+            session.setAttribute("servicegroupid", 2);
             response.sendRedirect("ClientChoseMaster-Servlet");
         }
         if (service9 != null) {
-            session.setAttribute("serviceid",9);
-            session.setAttribute("servicegroupid",2);
+            session.setAttribute("serviceid", 9);
+            session.setAttribute("servicegroupid", 2);
             response.sendRedirect("ClientChoseMaster-Servlet");
         }
         if (service10 != null) {
-            session.setAttribute("serviceid",10);
-            session.setAttribute("servicegroupid",2);
+            session.setAttribute("serviceid", 10);
+            session.setAttribute("servicegroupid", 2);
             response.sendRedirect("ClientChoseMaster-Servlet");
         }
         if (service11 != null) {
-            session.setAttribute("serviceid",11);
-            session.setAttribute("servicegroupid",2);
+            session.setAttribute("serviceid", 11);
+            session.setAttribute("servicegroupid", 2);
             response.sendRedirect("ClientChoseMaster-Servlet");
         }
         if (service12 != null) {
-            session.setAttribute("serviceid",12);
-            session.setAttribute("servicegroupid",2);
+            session.setAttribute("serviceid", 12);
+            session.setAttribute("servicegroupid", 2);
             response.sendRedirect("ClientChoseMaster-Servlet");
         }
         if (service13 != null) {
-            session.setAttribute("serviceid",13);
-            session.setAttribute("servicegroupid",3);
+            session.setAttribute("serviceid", 13);
+            session.setAttribute("servicegroupid", 3);
             response.sendRedirect("ClientChoseMaster-Servlet");
         }
         if (service14 != null) {
-            session.setAttribute("serviceid",14);
-            session.setAttribute("servicegroupid",3);
+            session.setAttribute("serviceid", 14);
+            session.setAttribute("servicegroupid", 3);
             response.sendRedirect("ClientChoseMaster-Servlet");
         }
-
         if (logout != null) {
             System.out.println("logout != null");
             session.invalidate();

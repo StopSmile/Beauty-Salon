@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class UserService extends DBConnect implements dao.UserDAO {
 
@@ -23,6 +22,7 @@ public class UserService extends DBConnect implements dao.UserDAO {
     private static final String SELECT_MASTERS_BY_NAME_DOWN = "select * from users where roleid=4 order by firstname DESC";
     private static final String SELECT_MASTERS_BY_RATE_DOWN = "select * from users where roleid = 4 order by rating";
     private static final String SELECT_MASTERS_BY_RATE_UP = "select * from users where roleid = 4 order by rating DESC";
+    private static final String SELECT_MASTER_ID_BY_ORDER_ID = "select masterid from public.order o where o.id = ?";
 
     Connection connection = getConnection();
 
@@ -124,6 +124,27 @@ public class UserService extends DBConnect implements dao.UserDAO {
         return result;
     }
 
+    public int getGetMasterIdByOrderId(int orderId) throws SQLException {
+        int result = 0;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        try {
+            ps = connection.prepareStatement(SELECT_MASTER_ID_BY_ORDER_ID);
+            ps.setInt(1, orderId);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                result = rs.getInt("masterid");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            assert rs != null;
+            rs.close();
+            ps.close();
+        }
+        return result;
+    }
+
     public ArrayList<User> getMasters() throws SQLException, IOException {
         ArrayList<User> list = new ArrayList<>();
         Statement stm = null;
@@ -153,6 +174,7 @@ public class UserService extends DBConnect implements dao.UserDAO {
         }
         return list;
     }
+
     public ArrayList<User> getMastersFirstGroup() throws SQLException, IOException {
         ArrayList<User> list = new ArrayList<>();
         Statement stm = null;
@@ -183,6 +205,7 @@ public class UserService extends DBConnect implements dao.UserDAO {
         }
         return list;
     }
+
     public ArrayList<User> getMastersSecondGroup() throws SQLException, IOException {
         ArrayList<User> list = new ArrayList<>();
         Statement stm = null;
@@ -213,6 +236,7 @@ public class UserService extends DBConnect implements dao.UserDAO {
         }
         return list;
     }
+
     public ArrayList<User> getMastersThirdGroup() throws SQLException, IOException {
         ArrayList<User> list = new ArrayList<>();
         Statement stm = null;
@@ -359,6 +383,7 @@ public class UserService extends DBConnect implements dao.UserDAO {
         }
         return list;
     }
+
     public ArrayList<User> getMaster(String name) throws SQLException, IOException {
         ArrayList<User> list = new ArrayList<>();
         PreparedStatement ps = null;
@@ -386,6 +411,7 @@ public class UserService extends DBConnect implements dao.UserDAO {
         }
         return list;
     }
+
     public ArrayList<User> getMasterInfo(String name) throws SQLException, IOException {
         ArrayList<User> list = new ArrayList<>();
         PreparedStatement ps = null;

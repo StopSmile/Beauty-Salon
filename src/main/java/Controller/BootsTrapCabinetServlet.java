@@ -17,12 +17,18 @@ public class BootsTrapCabinetServlet extends HttpServlet {
 
 
         HttpSession session = request.getSession();
-        String id = (String) session.getAttribute("id");
-        System.out.println(id);
-        if (id == null) {
+        Integer roleid = (Integer) session.getAttribute("roleid");
+        if (roleid == null) {
             request.getRequestDispatcher("Bootstrapcabinet.jsp").forward(request, response);
-        } else {
+        }
+        if (roleid == 2) {
             response.sendRedirect("ClientCabinet-Servlet");
+        }
+        if (roleid == 4) {
+            response.sendRedirect("MasterCabinet-Servlet");
+        }
+        if (roleid == 3) {
+            response.sendRedirect("AdminCabinet-Servlet");
         }
 
 
@@ -57,10 +63,20 @@ public class BootsTrapCabinetServlet extends HttpServlet {
                 throwables.printStackTrace();
             }
             if (user.getPassword().equals(password)) {
-                if (user.getRoleId() == 2){
+                if (user.getRoleId() == 2) {
                     session.setAttribute("user", user);
-                    session.setAttribute("id",String.valueOf(user.getId()));
+                    session.setAttribute("roleid", user.getRoleId());
                     response.sendRedirect("ClientCabinet-Servlet");
+                }
+                if (user.getRoleId() == 4) {
+                    session.setAttribute("user", user);
+                    session.setAttribute("roleid", user.getRoleId());
+                    response.sendRedirect("MasterCabinet-Servlet");
+                }
+                if (user.getRoleId() == 3) {
+                    session.setAttribute("user", user);
+                    session.setAttribute("roleid", user.getRoleId());
+                    response.sendRedirect("AdminCabinet-Servlet");
                 }
             } else {
                 String message = "Ви ввели неправильний пароль";

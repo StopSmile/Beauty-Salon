@@ -141,14 +141,9 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
 <script>
-    // Пример стартового JavaScript для отключения отправки форм при наличии недопустимых полей
     (function () {
         'use strict'
-
-        // Получите все формы, к которым мы хотим применить пользовательские стили проверки Bootstrap
         var forms = document.querySelectorAll('.needs-validation')
-
-        // Зацикливайтесь на них и предотвращайте отправку
         Array.prototype.slice.call(forms)
             .forEach(function (form) {
                 form.addEventListener('submit', function (event) {
@@ -156,7 +151,6 @@
                         event.preventDefault()
                         event.stopPropagation()
                     }
-
                     form.classList.add('was-validated')
                 }, false)
             })

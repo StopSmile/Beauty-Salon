@@ -40,8 +40,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="bootstrapourmasters-servlet">Список майстрів</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="ClientOrder-Servlet">Записатись на послугу</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Замовлення
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="AdminOrders-Servlet">Усі замовлення</a></li>
+                            <li><a class="dropdown-item" href="AdminActiveOrders-Servlet">Активні замовлення</a></li>
+                            <li><a class="dropdown-item" href="AdminDoneOrders-Servlet">Виконані замовлення</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Про нас</a>
@@ -80,7 +88,9 @@
                 </p>
             </div>
             <div class="col 5">
+
                 <h1>${message}</h1>
+
             </div>
             <div class="col-4">
                 <img class="w-100"
@@ -97,3 +107,5 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+
+
