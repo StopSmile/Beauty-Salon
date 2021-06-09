@@ -36,12 +36,12 @@ public class Demo {
         System.out.println(masterId);
 
 
-//        OrderService orderService = new OrderService();
-//        List<OrdersForMaster> list = orderService.getAllActiveOrders();
-//
-//        for (OrdersForMaster x: list){
-//            System.out.println(x);
-//        }
+        OrderService orderService = new OrderService();
+        List<OrdersForMaster> list = orderService.getAllOrdersForPagination(20,0);
+
+        for (OrdersForMaster x: list){
+            System.out.println(x);
+        }
 //        java.sql.Date sqlDate = ClientChoseTimeSlotServlet.pareStringToDate("2021-06-07");
 //
 //        java.util.Date date = new java.util.Date();

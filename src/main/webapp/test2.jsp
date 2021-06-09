@@ -78,8 +78,7 @@
     <div class="container-xxl">
         <div class="row">
             <div class="col-12">
-                <table class="table table-dark table-striped" id="example">
-
+                <table class="table table-dark table-striped">
                     <thead>
                     <tr>
                         <th scope="col">Ім'я клієнта</th>
@@ -108,16 +107,29 @@
                         </tr>
                         </tbody>
                     </c:forEach>
+
                 </table>
             </div>
         </div>
     </div>
 </section>
+<section>
+    <form method="get">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <button class="btn btn-dark" name="page" value="0" type="submit"><-</button>
+                <button class="btn btn-dark" name="page" value="1" type="submit">${page1}</button>
+                <button class="btn btn-dark" name="page" value="2" type="submit">${page2}</button>
+                <button class="btn btn-dark" name="page" value="3" type="submit">${page3}</button>
+                <button class="btn btn-dark" name="page" value="100" type="submit">-></button>
+            </ul>
+        </nav>
+    </form>
+</section>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
-
 
 </body>
 </html>
