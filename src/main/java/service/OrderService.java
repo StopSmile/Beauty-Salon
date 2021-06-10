@@ -15,7 +15,7 @@ public class OrderService extends DBConnect {
     private static final String SELECT_ORDERS_BY_MASTER_AND_STATUS = "select * from public.order where masterid = ? and orderstatusid = ?;";
     private static final String SELECT_ORDERS_FOR_MASTER = "select o.id,o.masterid,o.date,u.firstname,u.lastname,s.name as servicename,ts.timestart,ts.timeend,os.ordername,u1.firstname as mastername, u1.lastname as masterlastname " +
             "from public.order o inner join users u on u.id = o.clientid inner join services s on s.id = o.serviceid inner join " +
-            "public.timeslots ts on ts.id = o.timeslotid inner join public.orderstatus os on os.id = o.orderstatusid inner join users u1 on u1.id = o.masterid where masterid = ? and o.orderstatusid = 1;";
+            "public.timeslots ts on ts.id = o.timeslotid inner join public.orderstatus os on os.id = o.orderstatusid inner join users u1 on u1.id = o.masterid where masterid = ? and o.orderstatusid = 1 order by  o.date ASC, ts.timestart";
 
     private static final String SELECT_ORDERS_BY_ORDER_ID = "select o.id,o.masterid,o.date,u.firstname,u.lastname,s.name as servicename,ts.timestart,ts.timeend,os.ordername, " +
             "u1.firstname as mastername, u1.lastname as masterlastname from public.order o inner join users u on u.id = o.clientid inner join services s on s.id = o.serviceid inner join " +
@@ -48,6 +48,33 @@ public class OrderService extends DBConnect {
     private static final String SELECT_ALL_ORDERS_WHERE_STATUS_ACTIVE_PAGINATIONS = "select o.id,o.masterid,o.date,u.firstname,u.lastname,s.name as servicename,ts.timestart,ts.timeend,os.ordername, " +
             "u1.firstname as mastername, u1.lastname as masterlastname from public.order o inner join users u on u.id = o.clientid inner join services s on s.id = o.serviceid inner join " +
             "public.timeslots ts on ts.id = o.timeslotid inner join public.orderstatus os on os.id = o.orderstatusid inner join users u1 on u1.id = o.masterid where os.id = 1 order by o.date DESC limit ? offset ?";
+
+    private static final String SELECT_ALL_ORDERS_WHERE_STATUS_DONE_PAGINATIONS = "select o.id,o.masterid,o.date,u.firstname,u.lastname,s.name as servicename,ts.timestart,ts.timeend,os.ordername, " +
+            "u1.firstname as mastername, u1.lastname as masterlastname from public.order o inner join users u on u.id = o.clientid inner join services s on s.id = o.serviceid inner join " +
+            "public.timeslots ts on ts.id = o.timeslotid inner join public.orderstatus os on os.id = o.orderstatusid inner join users u1 on u1.id = o.masterid where os.id = 3 order by o.date DESC limit ? offset ?";
+
+    private static final String SELECT_EMAIL_BY_ORDER_ID = "select o.id, u.email from public.order o inner join users u on u.id = o.clientid where o.id = ?";
+
+    public String getEmailByOrderId(int id) throws SQLException {
+        String result = null;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        try {
+            ps = connection.prepareStatement(SELECT_EMAIL_BY_ORDER_ID);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                result = rs.getString("email");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            assert rs != null;
+            rs.close();
+            ps.close();
+        }
+        return result;
+    }
 
     public void addOrder(Order order) throws SQLException {
         PreparedStatement ps = null;
@@ -300,7 +327,8 @@ public class OrderService extends DBConnect {
         }
         return list;
     }
-    public ArrayList<OrdersForMaster> getAllOrdersForPagination(int limit,int offset) throws SQLException, IOException {
+
+    public ArrayList<OrdersForMaster> getAllOrdersForPagination(int limit, int offset) throws SQLException, IOException {
         ArrayList<OrdersForMaster> list = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -335,12 +363,49 @@ public class OrderService extends DBConnect {
         }
         return list;
     }
-    public ArrayList<OrdersForMaster> getAllOrdersWhereStatusActiveForPagination(int limit,int offset) throws SQLException, IOException {
+
+    public ArrayList<OrdersForMaster> getAllOrdersWhereStatusActiveForPagination(int limit, int offset) throws SQLException, IOException {
         ArrayList<OrdersForMaster> list = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             ps = connection.prepareStatement(SELECT_ALL_ORDERS_WHERE_STATUS_ACTIVE_PAGINATIONS);
+            ps.setInt(1, limit);
+            ps.setInt(2, offset);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                OrdersForMaster ordersForMaster = new OrdersForMaster();
+                ordersForMaster.setId(rs.getInt("id"));
+                ordersForMaster.setDate(rs.getDate("date"));
+                ordersForMaster.setFirstName(rs.getString("firstname"));
+                ordersForMaster.setLastName(rs.getString("lastname"));
+                ordersForMaster.setServiceName(rs.getString("servicename"));
+                ordersForMaster.setTimeStart(rs.getTime("timestart"));
+                ordersForMaster.setTimeEnd(rs.getTime("timeend"));
+                ordersForMaster.setOrderName(rs.getString("ordername"));
+                ordersForMaster.setMasterFirstName(rs.getString("mastername"));
+                ordersForMaster.setMasterLastName(rs.getString("masterlastname"));
+                ordersForMaster.setMasterId(rs.getInt("masterid"));
+                list.add(ordersForMaster);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            assert ps != null;
+            ps.close();
+            assert rs != null;
+            rs.close();
+        }
+        return list;
+    }
+
+    public ArrayList<OrdersForMaster> getAllOrdersWhereStatusDoneForPagination(int limit, int offset) throws SQLException, IOException {
+        ArrayList<OrdersForMaster> list = new ArrayList<>();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = connection.prepareStatement(SELECT_ALL_ORDERS_WHERE_STATUS_DONE_PAGINATIONS);
             ps.setInt(1, limit);
             ps.setInt(2, offset);
             rs = ps.executeQuery();

@@ -1,19 +1,17 @@
 package db;
 
-import Controller.ClientChoseTimeSlotServlet;
-import entity.*;
-import service.OrderService;
-import service.ServiceService;
-import service.TimeSlotService;
-import service.UserService;
 
+import service.OrderService;
+
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 
 public class Demo {
 
@@ -31,17 +29,64 @@ public class Demo {
 
     public static void main(String[] args) throws SQLException, IOException, InterruptedException, ParseException {
 
-        UserService userService = new UserService();
-        int masterId = userService.getGetMasterIdByOrderId(33);
-        System.out.println(masterId);
+//        Timer timer = new Timer();
+//        TimerTask timerTask = new TimerTask() {
+//            @Override
+//            public void run() {
+//                EmailSender.sendEmail("stopsmile2@gmail.com");
+//            }
+//        };
+//        timer.schedule(timerTask,3000);
+//        OrderService orderService = new OrderService();
+//       String email = orderService.getEmailByOrderId(55);
+//       System.out.println(email);
+
+    }
+}
 
 
-        OrderService orderService = new OrderService();
-        List<OrdersForMaster> list = orderService.getAllOrdersForPagination(20,0);
 
-        for (OrdersForMaster x: list){
-            System.out.println(x + "chek new git");
-        }
+
+
+
+
+//        Properties properties = System.getProperties();
+//        properties.setProperty("smtp.gmail.com", host);
+//
+//        Session session = Session.getDefaultInstance(properties); // default session
+//
+//        try {
+//            MimeMessage message = new MimeMessage(session); // email message
+//
+//            message.setFrom(new InternetAddress(from)); // setting header fields
+//
+//            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+//
+//            message.setSubject("Test Mail from Java Program"); // subject line
+//
+//            // actual mail body
+//            message.setText("You can send mail from Java program by using mail API, but you need" +
+//                    "couple of more JAR files e.g. smtp.jar and activation.jar");
+//
+//            // Send message
+//            Transport.send(message);
+//            System.out.println("Email Sent successfully....");
+//        } catch (MessagingException mex) {
+//            mex.printStackTrace();
+//        }
+
+
+//        UserService userService = new UserService();
+//        int masterId = userService.getGetMasterIdByOrderId(33);
+//        System.out.println(masterId);
+//
+//
+//        OrderService orderService = new OrderService();
+//        List<OrdersForMaster> list = orderService.getAllOrdersForPagination(20,0);
+//
+//        for (OrdersForMaster x: list){
+//            System.out.println(x + "chek new git");
+//        }
 
 //        java.sql.Date sqlDate = ClientChoseTimeSlotServlet.pareStringToDate("2021-06-07");
 //
@@ -118,5 +163,5 @@ public class Demo {
 //        DBManager dbManager = DBManager.getInstance();
 //        dbManager.getConnection();
 //        dbManager.insertUser(user);
-    }
-}
+//    }
+//}

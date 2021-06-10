@@ -83,7 +83,7 @@
                 </form>
             </div>
             <div class="col-5">
-                <p>${message}</p>
+                <p>${message1}</p>
             </div>
             <div class="col-4">
                 <img class="w-100"

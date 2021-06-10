@@ -71,7 +71,7 @@ public class BootsTrapOurMastersServlet extends HttpServlet {
                 request.setAttribute("masters", userService.getMaster(selectMaster));
                 request.setAttribute("masters2", serviceService.getMasterInfo(selectMaster));
                 request.setAttribute("name", "Назва послуги");
-                request.setAttribute("name2", "Ціна");
+                request.setAttribute("name2", "Ціна(UAH)");
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }

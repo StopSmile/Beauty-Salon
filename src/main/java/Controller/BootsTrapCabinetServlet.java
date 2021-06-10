@@ -15,10 +15,16 @@ public class BootsTrapCabinetServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
 
-
         HttpSession session = request.getSession();
+
         Integer roleid = (Integer) session.getAttribute("roleid");
         if (roleid == null) {
+            if (session.getAttribute("message1") != null){
+                String message = (String) session.getAttribute("message");
+                request.setAttribute("message1", message);
+                request.getRequestDispatcher("Bootstrapcabinet.jsp").forward(request, response);
+                return;
+            }
             request.getRequestDispatcher("Bootstrapcabinet.jsp").forward(request, response);
         }
         if (roleid == 2) {

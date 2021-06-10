@@ -22,6 +22,7 @@ public class BootsTrapRegistrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         UserService userService = new UserService();
         request.setCharacterEncoding("UTF-8");
+        HttpSession session = request.getSession();
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String login = request.getParameter("login");
@@ -56,8 +57,8 @@ public class BootsTrapRegistrationServlet extends HttpServlet {
                 throwables.printStackTrace();
             }
             String message = "Ви успішно зарейструвались";
-            request.setAttribute("message", message);
-            request.getRequestDispatcher("Bootstrapcabinet.jsp").forward(request, response);
+            session.setAttribute("message1", message);
+            response.sendRedirect("bootstrapcabinet-servlet");
         }
         if (checkLogin != null && checkEmail != null) {
             String message = "Такий логін вже існує " + checkLogin + " Така пошта вже зареєстрована" + checkEmail;

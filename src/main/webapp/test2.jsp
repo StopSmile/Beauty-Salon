@@ -90,9 +90,7 @@
                         <th scope="col">Ім'я майстра</th>
                         <th scope="col">Прізвище майстра</th>
                         <th scope="col">Статус</th>
-                        <th scope="col">Скасувати замовлення</th>
-                        <th scope="col">Редагувати замовлення</th>
-
+                        <th scope="col">Сплатити</th>
                     </tr>
                     </thead>
                     <c:forEach items="${orders}" var="order">
@@ -109,17 +107,9 @@
                             <td>${order.orderName}</td>
                             <td>
                                 <form method="post">
-                                    <button class="btn btn-danger btn-sm" name="cancel" type="submit"
+                                    <button class="btn btn-success btn-sm" name="paid" type="submit"
                                             value="${order.id}">
-                                        Скасувати
-                                    </button>
-                                </form>
-                            </td>
-                            <td>
-                                <form method="post">
-                                    <button class="btn btn-warning btn-sm" name="change" type="submit"
-                                            value="${order.id}">
-                                        Редагувати
+                                        Сплатити
                                     </button>
                                 </form>
                             </td>

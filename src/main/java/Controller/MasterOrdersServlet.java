@@ -15,12 +15,9 @@ public class MasterOrdersServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-
         HttpSession session = request.getSession();
-
-
         OrderService orderService = new OrderService();
-        request.setCharacterEncoding("UTF-8");
+
         try {
             User user = (User) session.getAttribute("user");
             int masterid = user.getId();
