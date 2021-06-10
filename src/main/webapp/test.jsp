@@ -562,3 +562,17 @@
 
 </body>
 </html>
+
+<section>
+    <form method="get">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <button class="btn btn-dark" name="page" value="0" type="submit"><-</button>
+                <button class="btn btn-dark" name="page" value="1" type="submit">${page1}</button>
+                <button class="btn btn-dark" name="page" value="2" type="submit">${page2}</button>
+                <button class="btn btn-dark" name="page" value="3" type="submit">${page3}</button>
+                <button class="btn btn-dark" name="page" value="100" type="submit">-></button>
+            </ul>
+        </nav>
+    </form>
+</section>

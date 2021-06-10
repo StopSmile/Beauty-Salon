@@ -77,7 +77,7 @@
 <section>
     <div class="container-xxl">
         <div class="row">
-            <div class="col-12">
+            <div class="col 12">
                 <table class="table table-dark table-striped">
                     <thead>
                     <tr>
@@ -90,6 +90,9 @@
                         <th scope="col">Ім'я майстра</th>
                         <th scope="col">Прізвище майстра</th>
                         <th scope="col">Статус</th>
+                        <th scope="col">Скасувати замовлення</th>
+                        <th scope="col">Редагувати замовлення</th>
+
                     </tr>
                     </thead>
                     <c:forEach items="${orders}" var="order">
@@ -104,10 +107,25 @@
                             <td>${order.masterFirstName}</td>
                             <td>${order.masterLastName}</td>
                             <td>${order.orderName}</td>
+                            <td>
+                                <form method="post">
+                                    <button class="btn btn-danger btn-sm" name="cancel" type="submit"
+                                            value="${order.id}">
+                                        Скасувати
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                <form method="post">
+                                    <button class="btn btn-warning btn-sm" name="change" type="submit"
+                                            value="${order.id}">
+                                        Редагувати
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                         </tbody>
                     </c:forEach>
-
                 </table>
             </div>
         </div>
@@ -127,10 +145,10 @@
     </form>
 </section>
 
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
-
 </body>
 </html>
 
