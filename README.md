@@ -1,20 +1,19 @@
-# Beauty-Salon
-Салон Краси
+Beauty salon
 
-Система реалізує розклад роботи співробітників салону краси. Існують ролі: Гість, Клієнт, Адміністратор, Майстер.
+The system implements the work schedule of beauty salon employees. There are roles: Guest, Client, Administrator, Master.
 
-Гість може бачити каталог послуг і список майстрів салону з врахуванням сортування:
-- за ім’ям майстра;
-- за рейтингом майстрів
-може здійснювати фільтрацію:
-- за певним майстром;
-- за послугами.
+The guest can see the catalog of services and the list of masters of salon taking into account sorting:
 
-Клієнт (авторизований користувач) може записатися на певну послугу, яку надає майстер, та на певний таймслот.
+by the name of the master;
+according to the rating of masters can filter:
+-for a certain master;
+-for services.
+The client (authorized user) can sign up for a specific service provided by the wizard and for a specific time slot.
 
-Адміністратор може:
-- переглядати заявки клієнтів і змінювати обраний таймслот;
-- скасовувати запис;
-- приймати оплату послуги.
-Майстер бачить свій розклад (зайняті і вільні таймслоти) і відмічає виконання замовлення.
-Після надання послуг Клієнт залишає відгук. Пропозиція про відгук приходить на електронну пошту Клієнта на наступний день після надання послуги.
+The administrator can:
+
+view customer requests and change the selected time slot;
+cancel entry;
+accept payment for the service.
+The wizard sees his schedule (busy and free time slots) and notes the execution of the order.
+After providing services, the Client leaves feedback. The offer to respond comes to the Client's e-mail the day after the service is provided.
