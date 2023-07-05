@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Admin
-  Date: 20.05.2021
-  Time: 14:33
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -18,9 +11,8 @@
 
 
     body {
-        background: url(Images/5.jpeg); /* Цвет фона и путь к файлу */
-        color: #ffffff; /* Цвет текста */
-        /*#ffffff*/
+        background: url(Images/5.jpeg);
+        color: #ffffff;
     }
 </style>
 <header>
@@ -87,7 +79,7 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://parykmakherskaya.in-kiev.org/wp-content/uploads/2017/11/perukar-plyusy-minusy-profesiyi.jpg"
+                        <img src="https://silikon-mag.com.ua/wp-content/uploads/2020/03/rozryadi-perukar-v-harakteristika-perukar-v-3-4-5-rozryadu-sk-l-ki-vs-ogo-kategor-y-3.jpg"
                              class="d-block w-100" alt="One">
                     </div>
                     <div class="carousel-item">
